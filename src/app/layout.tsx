@@ -1,7 +1,6 @@
-import { Inter } from 'next/font/google';
-import './globals.css';
+'use client';
 
-const inter = Inter({ subsets: ['latin'] });
+import { MantineProvider } from '@mantine/core';
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head />
+      <MantineProvider withGlobalStyles withNormalizeCSS>
+        <body>{children}</body>
+      </MantineProvider>
     </html>
   );
 }
